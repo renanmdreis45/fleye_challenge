@@ -1,15 +1,72 @@
-import { SafeAreaView, StyleSheet, View, Text } from 'react-native';
+import { View, FlatList} from 'react-native';
+import React from 'react';
 import Header from '../../components/header/header';
-import React from 'react'
+import { 
+    Container,
+    HeaderContainer,
+    HeaderTitle,
+    FavoritesListContainer
+ } from './styles';
+import useFavoritesController from './controller';
+import { useTheme } from 'styled-components';
+import { flatListStyleSheet } from '../../commom/constants/utils/flatlist';
+import Spacer from '../../components/Spacer';
+import MovieCard from '../../components/MovieCard';
+import NotFound from '../../components/NotFound';
+import useMyNavigation from '../../commom/hooks/useMyNavigation';
 
 const FavoriteView: React.FC = () => {
 
+    const {navigate} = useMyNavigation();
+    const {spacing} = useTheme();
+    const {favoritesList, setSortedOrder, sortedOrder} = useFavoritesController();
+    
     return (
-        <SafeAreaView>
+        <Container>
             <Header />
-            <View>
-            </View>
-        </SafeAreaView>
+            <HeaderContainer>
+                <HeaderTitle>Your favorites</HeaderTitle>
+            </HeaderContainer>
+            <FavoritesListContainer>
+            <FlatList
+                    key={'list-movies'} 
+                    data={favoritesList}
+                    numColumns={3}
+                    columnWrapperStyle={[
+                        flatListStyleSheet.columnWrapperStyle,
+                    ]}
+                    ItemSeparatorComponent={() => <Spacer height={spacing.md} />}
+                    renderItem={({ index, item }) => (
+                        <MovieCard
+                            key={item?.imdbId}
+                            url={item?.Poster}
+                            title={item.Title}
+                            description={"asasa"}
+                            isFavorite={false}
+                            onPress={() => navigate('Detail', { movie: item})}
+                        />
+                    )}
+                    ListFooterComponent={() => {
+                        return <Spacer height={spacing.md} />;
+                    }}
+                    ListEmptyComponent={() => {
+                        if (!favoritesList?.length) {
+                            return (
+                                <View>
+                                    <Spacer height={spacing.lg} />
+                                    <NotFound
+                                        icon="noResults"
+                                        title={'Search for a movie'}
+                                    />
+                                </View>
+                            );
+                        }
+
+                        return null;
+                    }}
+                />
+            </FavoritesListContainer>
+        </Container>
     )
 }
 

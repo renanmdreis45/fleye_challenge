@@ -22,7 +22,7 @@ import Spacer from "../Spacer";
 import { useTheme } from "styled-components";
 import Icon from "../Icon";
 
-const CardDescription = ({id, title, urlImage, isFavorite, year}: CardDescriptionProps) => {
+const CardDescription = ({id, title, urlImage, isFavorite, year, addFavorites, removeFavorites}: CardDescriptionProps) => {
 
     const {spacing} = useTheme();
 
@@ -47,7 +47,7 @@ const CardDescription = ({id, title, urlImage, isFavorite, year}: CardDescriptio
                     <FavoritesButton onPress={() => null}>
                         <Icon icon="plus" size={20}/>
                         <Spacer height={spacing.sm}/>
-                        <TextFavoritesButton>Adicionar aos favoritos</TextFavoritesButton>
+                        <TextFavoritesButton>{isFavorite ? 'Remove from favorites' : 'Add to favorites'}</TextFavoritesButton>
                     </FavoritesButton>
                 </ContainerButtons>
             </ContainerImage>

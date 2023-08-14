@@ -28,7 +28,8 @@ const DetailView: React.FC = () => {
         favoritesMovies
     } = useDetailController({movie});
 
-    console.log(movie);
+    const isFavorite = favoritesMovies[movie.imdbId] ? true : false;
+
     return (
         <Content>
             <Spacer height={spacing.md}/>
@@ -38,8 +39,10 @@ const DetailView: React.FC = () => {
                 id = {movie.imdbId}
                 title={movie.Title} 
                 urlImage={movie.Poster} 
-                type={movie.Type}
                 year = {movie.Year}
+                addFavorites={addFavoriteMovie}
+                removeFavorites={removeFavoriteMovie}
+                isFavorite = {isFavorite}
             />
         </Content>
     )
