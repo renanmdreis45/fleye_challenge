@@ -6,6 +6,7 @@ const FavoriteView: React.FC = () => {
 
     return (
         <SafeAreaView>
+            <Header />
             <View>
             </View>
         </SafeAreaView>

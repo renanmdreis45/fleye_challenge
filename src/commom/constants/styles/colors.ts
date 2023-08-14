@@ -4,6 +4,7 @@ export const secondary = '#171717';
 export const active = '#FFFFFF';
 export const inputTextSearch = '#777777';
 export const backgroundColorSearch = '#222222';
+export const white = '#FFFFFF';
 
 export const colors = {
     primary,
@@ -12,4 +13,5 @@ export const colors = {
     active,
     inputTextSearch,
     backgroundColorSearch,
+    white
 }

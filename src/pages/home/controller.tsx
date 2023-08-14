@@ -23,7 +23,7 @@ const useHomeController = () => {
             let response = await fetchMoviesByText({q: search}); 
             setMovies([...response]);
             if(getState().index === 0) {
-                navigate('SearchNav', {listMovies: response, searchTitle: search as string}); 
+                navigate('Search', {listMovies: response, searchTitle: search as string}); 
             } 
         } catch (error) {
         } finally {

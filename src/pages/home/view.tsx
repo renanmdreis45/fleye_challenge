@@ -28,6 +28,7 @@ const HomeView: React.FC = () => {
 
     return (
         <SafeAreaView style={styles.container}>
+            <Header />
             <ImageBackground source={homeBg} style={{ position: 'relative', height: '100%' }}>
                 <LinearGradient
                     colors={["#111111", "rgba(0,0,0,0)"]}

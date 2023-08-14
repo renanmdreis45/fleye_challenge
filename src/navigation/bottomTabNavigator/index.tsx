@@ -4,8 +4,8 @@ import { useTheme } from "styled-components/native";
 import HomeView from "../../pages/home/view";
 import Icon from "../../components/Icon";
 import FavoriteView from "../../pages/favorites/view";
-import HomeNavigator from '../HomeNavigator/homeNavigator';
 import useMyNavigation from '../../commom/hooks/useMyNavigation';
+import HomeNav from '../homeNavigator';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -31,7 +31,7 @@ const BottomTabNavigator = () => {
                     <Icon icon="home" size={size} color={color} />
                 )
             }}
-                component={HomeNavigator}
+                component={HomeNav}
                 name="Home"
             />
             <BottomTab.Screen options={{

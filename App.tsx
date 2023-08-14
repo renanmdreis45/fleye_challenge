@@ -7,6 +7,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import Routes from './src/navigation';
 import Header from './src/components/header/header';
 export default function App() {
+  
   return (
     <ThemeProvider theme={defaultTheme}>
       <NavigationContainer>

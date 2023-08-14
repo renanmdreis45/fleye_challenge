@@ -9,6 +9,7 @@ export const defaultTheme: DefaultTheme = {
     active: colors.active,
     inputTextSearch: colors.inputTextSearch,
     backgroundColorSearch: colors.backgroundColorSearch,
+    white: colors.white,
   },
   borders: {
     radius: {

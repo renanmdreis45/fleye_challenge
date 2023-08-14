@@ -12,9 +12,11 @@ import { useTheme } from 'styled-components';
 import { flatListStyleSheet } from '../../commom/constants/utils/flatlist';
 import NotFound from '../../components/NotFound';
 import useSearchController from './controller';
+import useMyNavigation from '../../commom/hooks/useMyNavigation';
 const SearchView: React.FC = () => {
 
     const { movies, setSearchText, searchText, handleSearchMovies, setMovies, loading} = useHomeController();
+    const {navigate} = useMyNavigation();
     const {spacing, colors} = useTheme();
     const {
         params: {searchTitle, listMovies},
@@ -28,6 +30,7 @@ const SearchView: React.FC = () => {
 
     return (
         <View style={styles.container}>
+            <Header />
             <View style={styles.containerSearch}>
                 <Input loading={loading} defaultValue={searchTitle} onChangeText={setSearchText} onKeyPress={(e) => handleKeyPress(e)} />
             </View>
@@ -48,7 +51,7 @@ const SearchView: React.FC = () => {
                             title={item.Title}
                             description={"asasa"}
                             isFavorite={false}
-                            // onPress={() => navigate('Detail', { show: item.show })}
+                            onPress={() => navigate('Detail', { movie: item})}
                         />
                     )}
                     ListFooterComponent={() => {

@@ -5,8 +5,9 @@ import { MovieModel } from "../../commom/models/movie.model";
 
 declare global {
     export type RoutesParamList = {
-        HomeNav: {searchTitle: string};
-        SearchNav: {listMovies: MovieModel[], searchTitle: string};
+        Home: {searchTitle: string};
+        Search: {listMovies: MovieModel[], searchTitle: string};
+        Detail: {movie: MovieModel};
     };
 
 
@@ -14,5 +15,6 @@ declare global {
         RoutesParamList
     >;
 
-    export type SearchRouterProp = RouterProp<RoutesParamList, 'SearchNav'>;
+    export type SearchRouterProp = RouterProp<RoutesParamList, 'Search'>;
+    export type DetailRouterProp = RouterProp<RoutesParamList, 'Detail'>;
 }
