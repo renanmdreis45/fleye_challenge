@@ -5,7 +5,7 @@ import { styles } from './styles';
 import React from 'react';
 import Input from '../../components/Input';
 import { colors } from '../../commom/constants/styles/colors';
-import useHomeController from './controller';
+import useSearchController from '../search/controller';
 import Spacer from '../../components/Spacer';
 import { useTheme } from 'styled-components/native';
 import Icon from '../../components/Icon';
@@ -19,10 +19,11 @@ const HomeView: React.FC = () => {
         setSearchText,
         loading,
         handleSearchMovies
-    } = useHomeController();
+    } = useSearchController();
 
     const { colors, spacing } = useTheme();
     const {navigate} = useMyNavigation();
+
   
 
 
@@ -52,7 +53,7 @@ const HomeView: React.FC = () => {
                             <Spacer height={spacing.sm} />
                             <View style={styles.containerSearch}>
                                 <Input loading={loading} onChangeText={setSearchText}/>
-                                <Pressable style={styles.searchButton} onPress={() => handleSearchMovies(searchText)}>
+                                <Pressable style={styles.searchButton} onPress={() => navigate('Search', { searchTitle: searchText})}>
                                     <Text style={styles.textButton}> Search </Text>
                                 </Pressable>
                             </View>

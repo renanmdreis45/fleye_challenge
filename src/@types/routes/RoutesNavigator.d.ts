@@ -7,7 +7,7 @@ declare global {
     export type RoutesParamList = {
         BottomTab?: NavigatorScreenParams<BottomTabParamList>;
         Home: {searchTitle: string};
-        Search: {listMovies: MovieModel[], searchTitle: string};
+        Search: {searchTitle: string};
         Detail: {movie: MovieModel};
     };
 

@@ -5,7 +5,6 @@ import React, { useEffect } from 'react'
 import { SearchBar } from 'react-native-screens';
 import Input from '../../components/Input';
 import { styles } from './styles';
-import useHomeController from '../home/controller';
 import Spacer from '../../components/Spacer';
 import MovieCard from '../../components/MovieCard';
 import { useTheme } from 'styled-components';
@@ -15,24 +14,22 @@ import useSearchController from './controller';
 import useMyNavigation from '../../commom/hooks/useMyNavigation';
 const SearchView: React.FC = () => {
 
-    const { movies, setSearchText, searchText, handleSearchMovies, setMovies, loading} = useHomeController();
+    const { movies, setSearchText, searchText, loading} = useSearchController();
     const {navigate} = useMyNavigation();
     const {spacing, colors} = useTheme();
     const {
-        params: {searchTitle, listMovies},
+        params: {searchTitle},
       } = useRoute<SearchRouterProp>();
-      
-    const handleKeyPress = (e: NativeSyntheticEvent<TextInputKeyPressEventData>) => {
-        if(searchText.length > 4) {
-            handleSearchMovies(searchText)
-        } 
-    }
+    
+    useEffect(() => {
+        setSearchText(searchTitle);
+    }, [])
 
     return (
         <View style={styles.container}>
             <Header />
             <View style={styles.containerSearch}>
-                <Input loading={loading} defaultValue={searchTitle} onChangeText={setSearchText} onKeyPress={(e) => handleKeyPress(e)} />
+                <Input loading={loading} defaultValue={searchTitle} onChangeText={setSearchText} returnKeyType='done'/>
             </View>
             <View style={styles.moviesList}>
                 <FlatList
