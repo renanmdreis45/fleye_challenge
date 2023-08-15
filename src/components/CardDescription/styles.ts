@@ -32,10 +32,9 @@ export const Span = styled.Text`
     font-size: 14px;
     color: gray;
 `;
-export const TitleSection = styled.View`
+export const TitleSection = styled.ScrollView`
     position: relative;
     flex-direction: column;
-    justify-content: space-between;
     width: 70%;
     height: 100%; 
 `;

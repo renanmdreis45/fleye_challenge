@@ -33,7 +33,7 @@ const CardDescription = ({id, title, urlImage, year, isFavorite, description, di
             <ContainerTitle>
                 <TitleSection>
                     <TextTitle>{title}</TextTitle>
-                    <TextSubtitle>{year} <Span> ● </Span> {duration}</TextSubtitle>
+                    <TextSubtitle>{year} {duration ?  <Span> ● </Span> : ""} {duration}</TextSubtitle>
                 </TitleSection>
                 <RatingSection>
                     <Spacer width={spacing.md} />
@@ -82,9 +82,9 @@ const CardDescription = ({id, title, urlImage, year, isFavorite, description, di
                     })}
                 </TextDescription>
                 <Spacer height={spacing.sm}/>
-                <TextDescription><TextDirector>Director:</TextDirector> {director}</TextDescription>
+                <TextDescription>{director && <TextDirector>Director:</TextDirector>} {director}</TextDescription>
                 <Spacer height={spacing.sm}/>
-                <TextDescription>{description}{description}{description}</TextDescription>
+                <TextDescription>{description}</TextDescription>
             </ContainerDescription>
         </CardContainer>
     )
