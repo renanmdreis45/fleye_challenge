@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
     },
 
     containerHeader: {
-        padding: 10,
+        padding: 5,
     },
 
     containerSubtitle: {

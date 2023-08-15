@@ -5,12 +5,6 @@ import Spacer from '../../components/Spacer';
 import { useTheme } from 'styled-components';
 import { 
     Content,
-    ContainerButtons,
-    WatchButton,
-    TextWatchButton,
-    FavoritesButton,
-    TextFavoritesButton,
-    CardContainer
 } from './styles';
 import BackNavigation from '../../components/BackNavigation';
 import { useNavigation, useRoute } from '@react-navigation/native';
@@ -34,7 +28,9 @@ const DetailView: React.FC = () => {
     const {
         addFavoriteMovie,
         removeFavoriteMovie,
-        favoritesMovies
+        favoritesMovies,
+        movieInfo,
+        setMovieInfo
     } = useDetailController({movie});
 
 
@@ -45,34 +41,21 @@ const DetailView: React.FC = () => {
             <Spacer height={spacing.md}/>
             <BackNavigation onPress={goBack}/>
             <Spacer height={spacing.md} />
-            <CardContainer>
-                <CardDescription
-                    id = {movie.imdbId}
-                    title={movie.Title} 
-                    urlImage={movie.Poster} 
-                    year = {movie.Year}
-                    isFavorite = {isFavorite ? true : false}
-                />
-                <ContainerButtons> 
-                    <WatchButton onPress={() => null}>
-                        <Icon icon="play" size={20}/>
-                        <Spacer height={spacing.sm}/>
-                        <TextWatchButton>Watch</TextWatchButton>
-                    </WatchButton>
-                    <FavoritesButton onPress={() => {
-                        isFavorite 
-                            ?  removeFavoriteMovie(movie.imdbID)
-                            :  addFavoriteMovie(movie)
-                    }
-                    }>
-                        <Icon icon="plus" size={20}/>
-                        <Spacer height={spacing.sm}/>
-                        <TextFavoritesButton>{isFavorite ? 'Remove from favorites' : 'Add to favorites'}</TextFavoritesButton>
-                    </FavoritesButton>
-                </ContainerButtons>
-            </CardContainer>
-
-            
+            <CardDescription
+                id = {movie.imdbID}
+                title={movie.Title} 
+                urlImage={movie.Poster} 
+                year = {movie.Year}
+                isFavorite = {isFavorite ? true : false}
+                director={movieInfo?.diretor}
+                description={movieInfo.description}
+                duration={movieInfo.duration}
+                addFavorites={addFavoriteMovie}
+                removeFavorites={removeFavoriteMovie}
+                movie={movie}
+                genre={movieInfo.genre}
+                rating={movieInfo.rating}
+            />
         </Content>
     )
 }

@@ -7,3 +7,11 @@ export interface MovieModel {
     Type: string;
     Poster: string;
 }
+
+export interface MovieInfoModel {
+    imdbID: string;
+    Title: string;
+    Year: string;
+    Type: string;
+    Poster: string;
+}

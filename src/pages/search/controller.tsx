@@ -34,7 +34,6 @@ const useSearchController = () => {
 
 
     useEffect(() => {
-        console.log(searchText);
         if (searchText.length > 0) {
           debouncedSearchMovies(searchText);
         }

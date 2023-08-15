@@ -1,8 +1,8 @@
-import { SafeAreaView, Pressable, View, Text, ImageBackground } from 'react-native';
+import { SafeAreaView, Pressable, View, Text, ImageBackground, KeyboardAvoidingView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import Header from '../../components/header/header';
 import { styles } from './styles';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Input from '../../components/Input';
 import { colors } from '../../commom/constants/styles/colors';
 import useSearchController from '../search/controller';
@@ -24,9 +24,6 @@ const HomeView: React.FC = () => {
     const { colors, spacing } = useTheme();
     const {navigate} = useMyNavigation();
 
-  
-
-
     return (
         <SafeAreaView style={styles.container}>
             <Header />
@@ -41,7 +38,7 @@ const HomeView: React.FC = () => {
                         height: '100%'
                     }}
                 />
-                <View>
+                <KeyboardAvoidingView>
                     <View style={styles.section}>
                         <View style={styles.containerContent}>
                             <View style={styles.containerHeader}>
@@ -52,14 +49,14 @@ const HomeView: React.FC = () => {
                             </View>
                             <Spacer height={spacing.sm} />
                             <View style={styles.containerSearch}>
-                                <Input loading={loading} onChangeText={setSearchText}/>
+                                <Input loading={loading} defaultValue=''  onChangeText={setSearchText}/>
                                 <Pressable style={styles.searchButton} onPress={() => navigate('Search', { searchTitle: searchText})}>
                                     <Text style={styles.textButton}> Search </Text>
                                 </Pressable>
                             </View>
                         </View>
                     </View>
-                </View>
+                </KeyboardAvoidingView>
             </ImageBackground>
         </SafeAreaView>
     )
