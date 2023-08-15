@@ -8,22 +8,20 @@ import {
   CenterIconAndImage,
   Container,
   CardImage,
-  IconAbsolute,
 } from './styles';
 import {MovieCardProps} from './types';
 
 const aspectRatio = 9 / 12.5;
 const widthPercentage = 0.3;
 
-const MovieCard = ({onPress, title, description, url, isFavorite}: MovieCardProps) => {
+const MovieCard = ({onPress, title, url, isFavorite}: MovieCardProps) => {
 
   const {width} = useWindowDimensions();
-  const {colors, spacing} = useTheme();
 
   const widthShowCover = useMemo(() => {
     return width * widthPercentage;
   }, [width]);
-  console.log(title);
+  
   return (
     <Pressable
       onPress={onPress}
@@ -31,6 +29,9 @@ const MovieCard = ({onPress, title, description, url, isFavorite}: MovieCardProp
       accessibilityRole="button">
       <Container width={widthShowCover}>
         <CenterIconAndImage>
+          {isFavorite && (
+              <Icon icon="favorite" size={20} style={{position: 'absolute', zIndex: 1, right: 10, top: 5}}/>
+          )}
           <CardImage
             hasBackground={!url}
             source={{uri: url}}
@@ -40,12 +41,6 @@ const MovieCard = ({onPress, title, description, url, isFavorite}: MovieCardProp
               width: widthShowCover,
             }}
           />
-
-          {isFavorite && (
-            <IconAbsolute>
-              <Icon icon="favorites" size={20}  color='#F04438'/>
-            </IconAbsolute>
-          )}
         </CenterIconAndImage>
       </Container>
     </Pressable>

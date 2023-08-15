@@ -1,7 +1,7 @@
 import React from "react";
 
 export interface MovieModel {
-    imdbId: string;
+    imdbID: string;
     Title: string;
     Year: string;
     Type: string;

@@ -46,10 +46,9 @@ const SearchView: React.FC = () => {
                     ItemSeparatorComponent={() => <Spacer height={spacing.md} />}
                     renderItem={({ index, item }) => (
                         <MovieCard
-                            key={item?.imdbId}
+                            key={index + item?.imdbID}
                             url={item?.Poster}
                             title={item.Title}
-                            description={"asasa"}
                             isFavorite={false}
                             onPress={() => navigate('Detail', { movie: item})}
                         />

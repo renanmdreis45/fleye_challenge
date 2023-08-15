@@ -6,12 +6,15 @@ import BottomTabNavigator from './src/navigation/bottomTabNavigator';
 import { NavigationContainer } from '@react-navigation/native';
 import Routes from './src/navigation';
 import Header from './src/components/header/header';
+import FavoritesMovies from './src/commom/contexts/FavoritesMovies';
 export default function App() {
   
   return (
     <ThemeProvider theme={defaultTheme}>
       <NavigationContainer>
-        <Routes />
+        <FavoritesMovies>
+          <Routes />
+        </FavoritesMovies>
       </NavigationContainer>
     </ThemeProvider>
   );

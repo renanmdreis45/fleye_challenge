@@ -5,6 +5,7 @@ import { MovieModel } from "../../commom/models/movie.model";
 
 declare global {
     export type RoutesParamList = {
+        BottomTab?: NavigatorScreenParams<BottomTabParamList>;
         Home: {searchTitle: string};
         Search: {listMovies: MovieModel[], searchTitle: string};
         Detail: {movie: MovieModel};
@@ -12,7 +13,8 @@ declare global {
 
 
     export type RoutesStackNavigationProp = NativeStackNavigationProp<
-        RoutesParamList
+        RoutesParamList,
+        'BottomTab'
     >;
 
     export type SearchRouterProp = RouterProp<RoutesParamList, 'Search'>;

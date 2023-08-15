@@ -4,8 +4,7 @@ import useFavoritesMovies from '../../commom/hooks/useFavoritesMovies';
 
 const useDetailController = ({movie}: UseDetailsController) => {
 
-    const {addFavoriteMovie, removeFavoriteMovie, favoritesMovies} = useFavoritesMovies();
-
+    const {favoritesMovies, addFavoriteMovie, removeFavoriteMovie} = useFavoritesMovies();
 
 
   return {

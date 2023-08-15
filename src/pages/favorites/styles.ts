@@ -7,7 +7,7 @@ export const Container = styled.SafeAreaView`
 `;
 
 export const HeaderContainer = styled.View`
-    flex: 1;
+    flex: 0.3;
     padding: 15px;
     margin-top: 10px;
 `;
@@ -19,6 +19,8 @@ export const HeaderTitle = styled.Text`
 `;
 
 export const FavoritesListContainer = styled.View`
-    flex: 4;
-    padding: 15px;
+    flex: 4.7;
+    paddingHorizontal: 15px;
+    paddingVertical: 5px;
+    margin: 5px;
 `;

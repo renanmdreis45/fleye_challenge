@@ -9,7 +9,7 @@ const useFavoritesController = () => {
     const [sortedOrder, setSortedOrder] = useState<SortedBy>('asc');
 
     const favoritesList = useMemo<Array<MovieModel>>(() => {
-        if(favoritesMovies?.length && Object.keys(favoritesMovies).length) {
+        if(Object.keys(favoritesMovies || {}).length) {
             return Object.values(favoritesMovies).sort((a, b) => {
                 if(sortedOrder === 'asc') {
                     return a.Title.localeCompare(b.Title);
@@ -21,7 +21,7 @@ const useFavoritesController = () => {
         return [];
     }, [favoritesMovies, sortedOrder])
 
-    return {favoritesList, sortedOrder, setSortedOrder};
+    return {favoritesList, sortedOrder, setSortedOrder, favoritesMovies};
 }
 
 export default useFavoritesController;

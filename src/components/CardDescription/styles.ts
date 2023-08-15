@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
 export const CardContainer = styled.View`
-    flex: 10;
+    flex: 5;
     background-color: #111111;
     flex-direction: column;
     padding: 5px;
@@ -10,7 +10,7 @@ export const CardContainer = styled.View`
 
 export const ContainerTitle = styled.View`
     position: relative;
-    flex: 0.9;
+    flex: 0.7;
     flex-direction: row;
     justify-content: space-between;
     padding: 5px;
@@ -36,55 +36,14 @@ export const TitleSection = styled.View`
 
 export const ContainerImage = styled.View`
     position: relative;
-    flex: 7;
+    flex: 4.3;
     flex-direction: column;
+    z-index: 2;
 `;
 
 export const MovieImage = styled.Image`
     padding-horizontal: 10px;
-    height: 80%;
+    height: 100%;
     width: 100%;
 `;
 
-export const ContainerButtons = styled.View`
-    position: relative;
-    justify-content: space-between;
-    flex-direction: row;
-    width: 100%;
-    height: 12%;
-    margin-top: 10px;
-`;
-
-export const WatchButton = styled.Pressable`
-    background-color: #FF6900;
-    position: relative;
-    border-radius: 5px;
-    align-items: center;
-    justify-content: center;
-    width: 35%;
-    padding: 10px;
-`;
-
-export const TextWatchButton = styled.Text`
-    font-weight: 500;
-    color: white;
-    font-size: 14px;
-`;
-
-export const FavoritesButton = styled.Pressable`
-    background-color: #111111;
-    position: relative;
-    border-radius: 5px;
-    align-items: center;
-    justify-content: center;
-    border-width: 1px;
-    border-color: white;
-    width: 60%;
-    padding-horizontal: 5px;
-`;
-
-export const TextFavoritesButton = styled.Text`
-    color: white;
-    font-weight: 500;
-    font-size: 14px;
-`;

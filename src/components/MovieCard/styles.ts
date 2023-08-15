@@ -12,9 +12,6 @@ export const CardImage = styled.Image<{hasBackground: boolean}>`
     Platform.OS === 'ios' ? theme.borders.radius.small : 0}px;
 `;
 
-export const IconAbsolute = styled.View`
-  position: absolute;
-`;
 export const CenterIconAndImage = styled.View`
   justify-content: center;
   align-items: center;

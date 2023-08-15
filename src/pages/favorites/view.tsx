@@ -21,6 +21,7 @@ const FavoriteView: React.FC = () => {
     const {spacing} = useTheme();
     const {favoritesList, setSortedOrder, sortedOrder} = useFavoritesController();
     
+    
     return (
         <Container>
             <Header />
@@ -38,11 +39,10 @@ const FavoriteView: React.FC = () => {
                     ItemSeparatorComponent={() => <Spacer height={spacing.md} />}
                     renderItem={({ index, item }) => (
                         <MovieCard
-                            key={item?.imdbId}
+                            key={index + item?.imdbID}
                             url={item?.Poster}
                             title={item.Title}
-                            description={"asasa"}
-                            isFavorite={false}
+                            isFavorite={true}
                             onPress={() => navigate('Detail', { movie: item})}
                         />
                     )}
@@ -56,7 +56,7 @@ const FavoriteView: React.FC = () => {
                                     <Spacer height={spacing.lg} />
                                     <NotFound
                                         icon="noResults"
-                                        title={'Search for a movie'}
+                                        title={"You don't have favorite yet"}
                                     />
                                 </View>
                             );

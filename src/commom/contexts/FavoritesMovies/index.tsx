@@ -10,16 +10,16 @@ export const FavoritesMoviesContext =
 
 const FavoritesMovies = ({children}: FavoritesMoviesProps) => {
 
-    const [favoritesMovies, setFavoritesMovies] = useState<FavoritesMoviesState>({});
+    const [favoritesMovies, setFavoritesMovies] = React.useState<FavoritesMoviesState>({});
 
     const addFavoriteMovie = (movie: MovieModel) => {
-        setFavoritesMovies(prevMovies => ({...prevMovies, [movie.imdbId]: movie}))
+        setFavoritesMovies(prev => ({...prev, [movie.imdbID]: movie}));
     };
 
-    const removeFavoriteMovie = (movie: MovieModel) => {
+    const removeFavoriteMovie = (movieId: string) => {
         setFavoritesMovies(prevMovies => {
-            if(prevMovies[movie.imdbId]) {
-                delete prevMovies[movie.imdbId]
+            if(prevMovies[movieId]) {
+                delete prevMovies[movieId]
             }
 
             return {...prevMovies};

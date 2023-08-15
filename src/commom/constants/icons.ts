@@ -5,6 +5,7 @@ import noResults from "../../assets/icons/noResults.png";
 import arrowLeft from '../../assets/icons/arrow-left.png';
 import play from '../../assets/icons/play.png';
 import plus from '../../assets/icons/plus.png';
+import favorite from '../../assets/icons/favorite.png';
 
 export type NameIconTypes =
   | 'home'
@@ -13,7 +14,8 @@ export type NameIconTypes =
   | 'noResults'
   | 'arrowLeft'
   | 'play'
-  | 'plus';
+  | 'plus'
+  | 'favorite';
 
 export default {
   home,
@@ -22,5 +24,6 @@ export default {
   noResults,
   arrowLeft,
   play,
-  plus
+  plus,
+  favorite
 };
