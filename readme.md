@@ -72,6 +72,9 @@ Como utilizei o Expo e o celular, acessei a aplicação pelo aplicativo do Expo 
 
 
 
+https://github.com/renanmdreis45/fleye_flix/assets/85807389/6f4d0f19-e7b7-4b7e-8208-8f1808f70d11
+
+
 
 # Melhorias futuras
   
